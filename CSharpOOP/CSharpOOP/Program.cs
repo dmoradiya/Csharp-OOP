@@ -11,6 +11,13 @@ namespace CSharpOOP
             // The new object has all of the properties that are specified in the class, but they are tied to that object.
             // One object's properties cannot see another object's properties without explicitly passing the values.
 
+            // Default Constructor
+            Person defaultPerson = new Person();
+            // Partial Constructor
+            Person partialPerson = new Person("Test", "Testson");
+            // Greedy Constructor
+            Person greedyPerson = new Person("Test", "McGreedy", 50); 
+
             Console.Write("Please enter your first name: ");
             person.FirstName = Console.ReadLine().Trim();
 
