@@ -36,6 +36,12 @@ namespace CSharpOOP
             }
         }
 
+        public void Birthday()
+        {
+            // Any references to properties will reference the properties of the instance on which the method is called.
+            Age += 1;
+        }
+
         /*
         // Private items cannot be seen outside of the class. Marking it as private enforces that all data to be stored MUST go through the property.
         private string _lastName;

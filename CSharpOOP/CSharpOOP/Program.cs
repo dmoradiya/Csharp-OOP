@@ -28,6 +28,10 @@ namespace CSharpOOP
                 person.Age = 0;
             }
             Console.WriteLine($"Hello, {person.FirstName} {person.LastName} who is {person.Age} years old!");
+
+            person.Birthday();
+
+            Console.WriteLine($"You just had a birthday, you are now {person.Age} years old.");
         }
     }
 }
