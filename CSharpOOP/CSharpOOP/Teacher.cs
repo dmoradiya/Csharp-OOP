@@ -11,12 +11,23 @@ namespace CSharpOOP
 
         public List<Student> Class { get; set; }
 
-        public Teacher(string firstName, string lastName)
+        public Classroom Room { get; set; }
+
+        public void AssignHomework()
+        {
+            foreach (Student student in Class)
+            {
+                student.DoHomework();
+            }
+        }
+
+        public Teacher(string firstName, string lastName, Classroom room)
         {
             FirstName = firstName;
             LastName = lastName;
 
             Class = new List<Student>();
+            Room = room;
         }
     }
 }

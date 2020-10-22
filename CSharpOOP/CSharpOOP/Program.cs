@@ -6,7 +6,7 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            Teacher mathTeacher = new Teacher("Bob", "Jones");
+            Teacher mathTeacher = new Teacher("Bob", "Jones", new Classroom(101));
 
             Student joe = new Student("Joe", "Smith");
             Student sally = new Student("Sally", "Howard");
@@ -14,23 +14,13 @@ namespace CSharpOOP
             mathTeacher.Class.Add(joe);
             mathTeacher.Class.Add(sally);
 
-            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
-            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
+            Console.WriteLine(joe);
+            Console.WriteLine(sally);
 
-            joe.LastName = "Johnson";
+            mathTeacher.AssignHomework();
 
-            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
-            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
-
-            joe = new Student("Joe", "Smith");
-
-            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
-            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
-
-            mathTeacher.Class[0].LastName = "Shepard";
-
-            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
-            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
+            Console.WriteLine(joe);
+            Console.WriteLine(sally);
 
         }
     }
