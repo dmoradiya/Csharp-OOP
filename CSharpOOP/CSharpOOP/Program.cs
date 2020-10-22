@@ -22,6 +22,11 @@ namespace CSharpOOP
             Console.WriteLine(joe);
             Console.WriteLine(sally);
 
+            joe.Sleep();
+            joe.Sleep();
+            joe.Sleep();
+            Console.WriteLine(joe);
+
         }
     }
 }
