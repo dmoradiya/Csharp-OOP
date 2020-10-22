@@ -6,39 +6,32 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            // Instantiate the object using the "new" keyword - generate an instance of a class / blueprint.
-            Person person = new Person();
-            // The new object has all of the properties that are specified in the class, but they are tied to that object.
-            // One object's properties cannot see another object's properties without explicitly passing the values.
+            Teacher mathTeacher = new Teacher("Bob", "Jones");
 
-            // Default Constructor
-            Person defaultPerson = new Person();
-            // Partial Constructor
-            Person partialPerson = new Person("Test", "Testson");
-            // Greedy Constructor
-            Person greedyPerson = new Person("Test", "McGreedy", 50); 
+            Student joe = new Student("Joe", "Smith");
+            Student sally = new Student("Sally", "Howard");
 
-            Console.Write("Please enter your first name: ");
-            person.FirstName = Console.ReadLine().Trim();
+            mathTeacher.Class.Add(joe);
+            mathTeacher.Class.Add(sally);
 
-            Console.Write("Please enter your last name: ");
-            person.LastName = Console.ReadLine().Trim();
+            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
+            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
 
-            Console.Write("Please enter your age: ");
-            try
-            {
-                person.Age = int.Parse(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error: {e.Message} Setting to zero.");
-                person.Age = 0;
-            }
-            Console.WriteLine($"Hello, {person.FirstName} {person.LastName} who is {person.Age} years old!");
+            joe.LastName = "Johnson";
 
-            person.Birthday();
+            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
+            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
 
-            Console.WriteLine($"You just had a birthday, you are now {person.Age} years old.");
+            joe = new Student("Joe", "Smith");
+
+            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
+            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
+
+            mathTeacher.Class[0].LastName = "Shepard";
+
+            Console.WriteLine($"joe variable: {joe.FirstName} {joe.LastName}");
+            Console.WriteLine($"First Student: {mathTeacher.Class[0].FirstName} {mathTeacher.Class[0].LastName}");
+
         }
     }
 }
