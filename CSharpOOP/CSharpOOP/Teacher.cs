@@ -4,10 +4,9 @@ using System.Text;
 
 namespace CSharpOOP
 {
-    class Teacher
+    class Teacher : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        // When teachers sleep, energy level goes up by 25, stress goes down by 20.
 
         public List<Student> Class { get; set; }
 
@@ -19,6 +18,12 @@ namespace CSharpOOP
             {
                 student.DoHomework();
             }
+        }
+
+        public override void Sleep()
+        {
+            EnergyLevel += 25;
+            StressLevel -= 20;
         }
 
         public Teacher(string firstName, string lastName, Classroom room)

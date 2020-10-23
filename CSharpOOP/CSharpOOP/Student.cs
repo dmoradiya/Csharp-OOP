@@ -1,66 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace CSharpOOP
 {
-    class Student
+    class Student : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        private int _energyLevel;
-        private int EnergyLevel
-        {
-            get
-            {
-                return _energyLevel;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Exception("Insufficient energy to perform that action.");
-                }
-                _energyLevel = value;
-            }
-        }
-        private int _stressLevel;
-        private int StressLevel
-        {
-            get
-            {
-                return _stressLevel;
-            }
-            set
-            {
-                if (value > 100)
-                {
-                    throw new Exception("Too much stress to perform that action.");
-                }
-                // Stress can't go below zero, but don't throw an exception. This is called clamping.
-                if (value < 0)
-                {
-                    _stressLevel = 0;
-                }
-                else
-                {
-                    _stressLevel = value;
-                }
-
-            }
-        }
-
-        public void Sleep()
-        {
-            EnergyLevel += 25;
-            StressLevel -= 30;
-        }
+        // When students sleep, energy level goes up by 35, stress goes down by 30.
 
         public void DoHomework()
         {
             EnergyLevel -= 20;
             StressLevel += 25;
+        }
+
+        public override void Sleep()
+        {
+            EnergyLevel += 35;
+            StressLevel -= 30;
         }
 
         public Student(string firstName, string lastName)

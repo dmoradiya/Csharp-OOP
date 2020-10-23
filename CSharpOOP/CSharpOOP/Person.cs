@@ -4,89 +4,64 @@ using System.Text;
 
 namespace CSharpOOP
 {
-    class Person
+    // An abstract class CANNOT be instantiated.
+    // It's typically used when it doesn't make logical sense to instantiate the base class.
+    abstract class Person
     {
-
-        // In-Class Practice:
-        // Add an "Age" property. Validate that the incoming "value" is greater than or equal to zero before setting the backing variable.
-        // If it is not, throw an Exception.
-
-
-        // Public items can be seen anywhere.
-        // Auto-Implemented Property (Automatically generates a default "getter" (accessor) and "setter" (mutator).
-        // AccessModifier DataType PropertyName { get; set; }
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
 
-        private int _age;
-        public int Age
+        public DateTime DateOfBirth { get; set; }
+
+        private int _energyLevel;
+        public int EnergyLevel
         {
             get
             {
-                return _age;
+                return _energyLevel;
             }
-            set
+            // protected means only this class, or derived classes can see this property / method.
+            protected set
             {
                 if (value < 0)
                 {
-                    throw new Exception("Age must be greater than, or equal to, zero.");
+                    throw new Exception("Insufficient energy to perform that action.");
                 }
-                _age = value;
+                _energyLevel = value;
+            }
+        }
+        private int _stressLevel;
+        public int StressLevel
+        {
+            get
+            {
+                return _stressLevel;
+            }
+            protected set
+            {
+                if (value > 100)
+                {
+                    throw new Exception("Too much stress to perform that action.");
+                }
+                // Stress can't go below zero, but don't throw an exception. This is called clamping.
+                if (value < 0)
+                {
+                    _stressLevel = 0;
+                }
+                else
+                {
+                    _stressLevel = value;
+                }
             }
         }
 
-        public void Birthday()
-        {
-            // Any references to properties will reference the properties of the instance on which the method is called.
-            Age += 1;
-        }
+        // What it means on methods, is that while it has no functionality here, all derived classes MUST have functionality.
+        abstract public void Sleep();
 
-
-        // Default Constructor - Takes no parameters, and sets default values for the properties.
-        public Person()
-        {
-            FirstName = "John";
-            LastName = "Doe";
-            Age = 20;
-        }
-
-        // Partial Constructror - Takes parameters for some properties, and defaults others.
-        public Person(string firstName, string lastName)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = 20;
-        }
-
-        // Greedy Constructor - Takes paramaters for all properties.
-        public Person(string firstName, string lastName, int age)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-        }
-
-        /*
-        // Private items cannot be seen outside of the class. Marking it as private enforces that all data to be stored MUST go through the property.
-        private string _lastName;
-        // Fully-Implemented Property (You specify the beahviour for the "getter" (accessor) and "setter" (mutator).
-        public string LastName { 
-            get 
-            {
-                // For the getter, typically you will want to return the value from the backing variable.
-                // You may format it first, etc. but that is not necessary.
-                return _lastName;
-            } 
-            set 
-            {
-                // For the setter, typically you will want to assign the backing variable to the keyword "value" which represents what is being assigned to the property.
-                // You may perform validation here as well.
-                _lastName = value;
-            } 
-        }
-        */
-
+        // In-Class Practice:
+        // Add a Eat() method that will increase energy and decrease stress.
+        // Teacher: +15 energy, -5 stress.
+        // Student: +20 energy, -10 stress.
 
     }
 }
