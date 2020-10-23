@@ -12,14 +12,16 @@ namespace CSharpOOP
 
             Teacher theTeacher = new Teacher("Teacher", "McTest", theRoom);
 
-            //List<Student> someStudents = new List<Student>();
-            theTeacher.Class[0] = theStudent;
-
-            //someStudents[0].DoHomework();
-            theTeacher.Class[0].DoHomework();
+           
 
             //theRoom.RoomNumber
             //theTeacher.Room.RoomNumber
+            theStudent.DoHomework();
+            Console.WriteLine(theStudent);
+            theStudent.DoHomework();
+            Console.WriteLine(theStudent);
+            theStudent.Eat();
+            Console.WriteLine(theStudent);
 
 
 

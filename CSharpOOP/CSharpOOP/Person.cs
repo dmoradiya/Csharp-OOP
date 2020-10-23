@@ -57,6 +57,7 @@ namespace CSharpOOP
 
         // What it means on methods, is that while it has no functionality here, all derived classes MUST have functionality.
         abstract public void Sleep();
+        abstract public void Eat();
 
         // In-Class Practice:
         // Add a Eat() method that will increase energy and decrease stress.

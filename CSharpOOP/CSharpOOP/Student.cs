@@ -20,6 +20,11 @@ namespace CSharpOOP
             EnergyLevel += 35;
             StressLevel -= 30;
         }
+        public override void Eat()
+        {
+            EnergyLevel += 20;
+            StressLevel -= 10;
+        }
 
         public Student(string firstName, string lastName)
         {
